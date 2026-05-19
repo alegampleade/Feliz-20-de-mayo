@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para mi persona favorita 💕</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,32 +17,96 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
 body{
 background:#0f0f0f;
 overflow-x:hidden;
+overflow-y:auto;
 color:white;
-scroll-behavior:smooth;
+position:relative;
 }
 
-/* Secciones */
+/* SCROLL */
+
+body::-webkit-scrollbar{
+width:10px;
+}
+
+body::-webkit-scrollbar-thumb{
+background:#ff77aa;
+border-radius:20px;
+}
+
+body::-webkit-scrollbar-track{
+background:#111;
+}
+
+/* KUROMI PEGATINAS */
+
+.sticker{
+position:fixed;
+width:90px;
+opacity:0.15;
+z-index:1;
+pointer-events:none;
+animation:floatSticker 6s ease-in-out infinite;
+}
+
+.sticker1{
+top:5%;
+left:3%;
+}
+
+.sticker2{
+top:25%;
+right:3%;
+}
+
+.sticker3{
+bottom:10%;
+left:5%;
+}
+
+.sticker4{
+bottom:20%;
+right:5%;
+}
+
+@keyframes floatSticker{
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+50%{
+transform:translateY(-15px) rotate(5deg);
+}
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+}
+
+/* SECCIONES */
 
 section{
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:60px 20px;
+padding:80px 20px;
 position:relative;
 }
 
-/* Fondos */
+/* FONDOS */
 
 .bg{
 position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-filter:brightness(0.35);
+filter:brightness(0.30);
 z-index:-2;
 }
 
@@ -53,7 +118,7 @@ background:rgba(0,0,0,0.35);
 z-index:-1;
 }
 
-/* Corazones */
+/* CORAZONES */
 
 .heart{
 position:fixed;
@@ -77,11 +142,12 @@ opacity:0;
 }
 }
 
-/* Intro */
+/* INTRO */
 
 .intro{
 text-align:center;
 max-width:900px;
+z-index:2;
 }
 
 .intro h1{
@@ -91,12 +157,13 @@ text-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 
 .intro p{
-font-size:1.4rem;
+font-size:1.5rem;
 opacity:0.9;
 margin-bottom:35px;
+line-height:1.8;
 }
 
-/* Botones */
+/* BOTONES */
 
 button{
 padding:16px 40px;
@@ -124,24 +191,26 @@ background:white;
 color:#ff4f87;
 }
 
-/* Cartas */
+/* CARTAS */
 
 .card{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:40px;
-border-radius:30px;
-max-width:900px;
-line-height:2;
-font-size:1.1rem;
-box-shadow:0 0 30px rgba(0,0,0,0.3);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+padding:50px;
+border-radius:35px;
+max-width:950px;
+line-height:2.1;
+font-size:1.12rem;
+box-shadow:0 0 35px rgba(0,0,0,0.4);
 animation:fadeUp 1s ease;
+z-index:2;
 }
 
 .card h2{
-margin-bottom:25px;
-font-size:2.5rem;
+margin-bottom:30px;
+font-size:2.8rem;
 color:#ffd1e3;
+text-align:center;
 }
 
 .highlight{
@@ -149,7 +218,7 @@ color:#ff9fc1;
 font-weight:bold;
 }
 
-/* Galería */
+/* GALERÍA */
 
 .gallery{
 display:grid;
@@ -171,7 +240,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.4);
 transform:scale(1.03);
 }
 
-/* Final */
+/* FINAL */
 
 .final{
 text-align:center;
@@ -195,7 +264,7 @@ background:#ff4f87;
 color:white;
 }
 
-/* Animaciones */
+/* ANIMACIONES */
 
 @keyframes fadeUp{
 from{
@@ -255,29 +324,13 @@ opacity:1;
 transform:translateY(0) scale(0);
 opacity:0;
 }
-
 20%{
 opacity:1;
 }
-
 100%{
 transform:translateY(-120vh) scale(1.5);
 opacity:0;
 }
-}
-
-.scroll{
-position:absolute;
-bottom:30px;
-font-size:1rem;
-animation:updown 2s infinite;
-opacity:0.8;
-}
-
-@keyframes updown{
-0%{transform:translateY(0);}
-50%{transform:translateY(10px);}
-100%{transform:translateY(0);}
 }
 
 </style>
@@ -285,7 +338,14 @@ opacity:0.8;
 
 <body>
 
-<!-- Música -->
+<!-- KUROMI -->
+
+<img class="sticker sticker1" src="https://i.imgur.com/xXKpK0M.png">
+<img class="sticker sticker2" src="https://i.imgur.com/xXKpK0M.png">
+<img class="sticker sticker3" src="https://i.imgur.com/xXKpK0M.png">
+<img class="sticker sticker4" src="https://i.imgur.com/xXKpK0M.png">
+
+<!-- MÚSICA -->
 
 <audio id="music" loop>
 <source src="musica.mp3" type="audio/mpeg">
@@ -295,7 +355,7 @@ opacity:0.8;
 <source src="final.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Corazones -->
+<!-- CORAZONES -->
 
 <script>
 
@@ -329,10 +389,10 @@ document.body.appendChild(heart);
 
 <div class="intro">
 
-<h1>20 de mayo 💌</h1>
+<h1>Para mi persona favorita 💕</h1>
 
 <p>
-Para mi persona favorita 💕
+Hay personas que llegan sin avisar y terminan convirtiéndose en una de las partes más bonitas de tu vida 😌💕
 </p>
 
 <button class="mainBtn"
@@ -347,10 +407,6 @@ Abrir carta 💌
 <button class="musicBtn" onclick="playMusic()">
 🎵 Reproducir música
 </button>
-
-<div class="scroll">
-↓ Deslizá ↓
-</div>
 
 </div>
 
@@ -378,7 +434,11 @@ Y creo que eso es lo más bonito de todo esto… que apareciste sin hacer ruido,
 
 <br><br>
 
-No sé exactamente en qué momento comenzaste a volverte tan importante para mí.
+No sé exactamente en qué momento comenzaste a volverte tan importante para mí. Tal vez fue entre nuestras llamadas de madrugada, entre las conversaciones donde el tiempo se pasaba demasiado rápido o entre esos momentos simples donde no hacía falta hacer nada especial para sentirme feliz.
+
+<br><br>
+
+Porque con vos incluso lo cotidiano se siente distinto.
 
 </p>
 
@@ -400,13 +460,7 @@ No sé exactamente en qué momento comenzaste a volverte tan importante para mí
 
 <p>
 
-Tal vez fue entre nuestras llamadas de madrugada, entre las conversaciones donde el tiempo se pasaba demasiado rápido o entre esos momentos simples donde no hacía falta hacer nada especial para sentirme feliz.
-
-<br><br>
-
-<span class="highlight">
 Me acostumbraste demasiado rápido a vos.
-</span>
 
 <br><br>
 
@@ -417,6 +471,18 @@ A tus audios.
 A pensar en cómo estará tu día.
 <br>
 A sonreír cuando veo una notificación tuya.
+
+<br><br>
+
+Y sinceramente, no hay una sola parte de eso que quiera perder.
+
+<br><br>
+
+Me enamoré de tu forma de ser, de tu voz, de tus ojos, de esa manera tan única que tenés de hacerme sentir tranquilo incluso cuando mi cabeza está llena de cosas.
+
+<br><br>
+
+Me enamoré de cómo me hacés sentir querido, escuchado y comprendido.
 
 </p>
 
@@ -434,15 +500,23 @@ A sonreír cuando veo una notificación tuya.
 
 <div class="card">
 
-<h2>Me enamoré de vos 🤍</h2>
+<h2>Lo que siento por vos 🤍</h2>
 
 <p>
 
-Me enamoré de tu forma de ser, de tu voz, de tus ojos, de esa manera tan única que tenés de hacerme sentir tranquilo incluso cuando mi cabeza está llena de cosas.
+También me enamora la forma en la que poco a poco me dejaste conocerte de verdad.
 
 <br><br>
 
-También me enamora la forma en la que poco a poco me dejaste conocerte de verdad.
+Tus nervios.
+<br>
+Tus silencios.
+<br>
+Tus momentos tímidos.
+<br>
+Tus inseguridades.
+<br>
+E incluso esas pequeñas cosas que quizás vos no notás tanto de vos misma.
 
 <br><br>
 
@@ -454,6 +528,50 @@ Porque si soy sincero, no siento que tenga que buscar perfección en vos…
 Ya sos perfecta para mí simplemente siendo quien sos.
 </span>
 
+<br><br>
+
+Y aunque nuestra historia todavía siga creciendo, siento que lo nuestro tiene algo demasiado especial.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- CARTA 4 -->
+
+<section>
+
+<img class="bg" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="card">
+
+<h2>Gracias por existir 💌</h2>
+
+<p>
+
+Gracias por quedarte.
+<br>
+Gracias por confiar en mí.
+<br>
+Gracias por cada madrugada donde hablamos hasta quedarnos dormidos.
+<br>
+Gracias por escucharme incluso cuando digo cosas tontas.
+
+<br><br>
+
+Quiero que sepas que voy a seguir esforzándome por hacerte feliz, por escucharte, acompañarte y darte un lugar seguro donde siempre puedas ser vos misma.
+
+<br><br>
+
+Porque si hay algo que tengo claro, es que no quiero que esto sea algo bonito solo por un rato.
+
+<br><br>
+
+Quiero construir recuerdos, confianza y amor con vos 😌💕
+
 </p>
 
 </div>
@@ -464,7 +582,7 @@ Ya sos perfecta para mí simplemente siendo quien sos.
 
 <section>
 
-<img class="bg" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
+<img class="bg" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1600&auto=format&fit=crop">
 
 <div class="overlay"></div>
 
@@ -492,7 +610,7 @@ Acá podés poner fotos de ella o de ustedes 💕
 
 <section>
 
-<img class="bg" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1600&auto=format&fit=crop">
+<img class="bg" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
 
 <div class="overlay"></div>
 
@@ -502,19 +620,11 @@ Acá podés poner fotos de ella o de ustedes 💕
 
 <p>
 
-Hoy es el día de las cartas de amor 💌
+Gracias por convertirte en una de las partes más bonitas de mi vida.
 
 <br><br>
 
-Pero creo que lo más lindo de esta fecha no es simplemente escribir una carta, sino tener a alguien que realmente inspire cada palabra que sale del corazón.
-
-<br><br>
-
-Y vos te convertiste exactamente en eso para mí.
-
-<br><br>
-
-Gracias por convertirte en una de las partes más bonitas de mi vida 🤍
+Y gracias por hacerme sentir un amor tan real y bonito 😌💕
 
 </p>
 
@@ -531,22 +641,16 @@ Gracias por convertirte en una de las partes más bonitas de mi vida 🤍
 <script>
 
 const music=document.getElementById('music');
-
 const finalMusic=document.getElementById('finalMusic');
 
 function playMusic(){
-
 music.play();
-
 }
 
 function finale(){
 
 music.pause();
-
 finalMusic.play();
-
-/* Pantalla cinematográfica */
 
 const overlay=document.createElement("div");
 
@@ -562,8 +666,8 @@ overlay.style.flexDirection="column";
 overlay.style.justifyContent="center";
 overlay.style.alignItems="center";
 overlay.style.textAlign="center";
-overlay.style.overflow="hidden";
-overlay.style.padding="20px";
+overlay.style.overflowY="auto";
+overlay.style.padding="50px 20px";
 
 document.body.appendChild(overlay);
 
@@ -603,91 +707,60 @@ heart.style.zIndex="2";
 
 overlay.appendChild(heart);
 
-/* Texto */
+/* Mini carta */
 
-const text=document.createElement("div");
+const miniCard=document.createElement("div");
 
-text.style.color="white";
-text.style.fontSize="2rem";
-text.style.maxWidth="900px";
-text.style.lineHeight="1.8";
-text.style.animation="fadeIn 2s ease";
-text.style.zIndex="2";
+miniCard.style.background="rgba(255,255,255,0.08)";
+miniCard.style.backdropFilter="blur(14px)";
+miniCard.style.padding="40px";
+miniCard.style.borderRadius="30px";
+miniCard.style.maxWidth="900px";
+miniCard.style.lineHeight="2";
+miniCard.style.fontSize="1.2rem";
+miniCard.style.color="white";
+miniCard.style.zIndex="2";
+miniCard.style.animation="fadeIn 3s ease";
+miniCard.style.marginBottom="50px";
 
-overlay.appendChild(text);
+miniCard.innerHTML=`
 
-/* Frases */
-
-const phrases=[
-
-"Gracias por llegar a mi vida 🤍",
-
-"Gracias por quedarte 😌💕",
-
-"Gracias por escucharme incluso en mis peores días ❤️",
-
-"Con vos todo se siente más bonito ✨",
-
-"Me devolviste una felicidad que no sabía cuánto necesitaba 💌",
-
-"Te elegiría mil veces más 🤍",
-
-"Ahora sos mi lugar seguro 😌💕"
-
-];
-
-let index=0;
-
-function showPhrase(){
-
-if(index<phrases.length){
-
-text.innerHTML=phrases[index];
-
-index++;
-
-setTimeout(showPhrase,2800);
-
-}else{
-
-setTimeout(()=>{
-
-text.innerHTML=`
-
-<div style="
-font-size:4rem;
-font-weight:bold;
-margin-bottom:25px;
-animation:fadeIn 3s ease;
+<h1 style="
+margin-bottom:30px;
+font-size:3rem;
+color:#ffd1e3;
 ">
+Para mi persona favorita 💕
+</h1>
 
-20 de mayo 💌
+<p>
 
-</div>
-
-<div style="
-font-size:2rem;
-line-height:2;
-animation:fadeIn 4s ease;
-">
-
-Gracias por convertirte en una de las partes más bonitas de mi vida 🤍
+Gracias por llegar a mi vida de una manera tan inesperada y aun así convertirte en alguien tan importante para mí 😌💕
 
 <br><br>
 
-Y gracias por hacerme sentir un amor tan real y bonito 😌💕
+Quizás todavía me pongo nervioso algunas veces cuando hablamos, quizás sigo pensando demasiado en vos o sigo emocionándome con cosas pequeñas… pero supongo que eso pasa cuando alguien logra tocarte el corazón de verdad.
 
-</div>
+<br><br>
+
+Y sinceramente, vos lograste eso conmigo de una manera que jamás voy a olvidar 🤍
+
+<br><br>
+
+Quiero seguir creando recuerdos con vos.
+Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
+Quiero seguir haciéndote sentir querida incluso en tus peores días.
+
+<br><br>
+
+Porque si algo tengo claro…
+es que no quiero perder todo esto tan bonito que construimos juntos 😌💕
+
+</p>
 
 `;
 
-},3000);
-
-}
-
-}
-
-showPhrase();
+overlay.appendChild(miniCard);
 
 /* Corazones flotando */
 
