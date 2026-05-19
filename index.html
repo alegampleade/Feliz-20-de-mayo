@@ -49,11 +49,49 @@ background:#111;
 
 .sticker{
 position:fixed;
-width:90px;
-opacity:0.22;
-filter:drop-shadow(0 0 10px rgba(255,192,203,0.5));z-index:1;
+width:95px;
+z-index:1;
 pointer-events:none;
+
+opacity:0.75;
+
+padding:8px;
+
+background:
+radial-gradient(
+circle,
+rgba(255,192,203,0.15),
+rgba(255,105,180,0.05),
+transparent
+);
+
+border-radius:25px;
+
+backdrop-filter:blur(2px);
+
+filter:
+drop-shadow(0 0 8px rgba(255,192,203,0.6))
+drop-shadow(0 0 18px rgba(255,105,180,0.3));
+
 animation:floatSticker 6s ease-in-out infinite;
+
+transition:0.5s;
+}
+
+.sticker::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:25px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.08),
+rgba(255,192,203,0.03)
+);
+
+z-index:-1;
 }
 
 .sticker1{
@@ -340,13 +378,13 @@ opacity:0;
 
 <!-- KUROMI -->
 
-<img class="sticker sticker1" src="https://upload.wikimedia.org/wikipedia/en/7/72/Kuromi.png">
+<img class="sticker sticker1" src="Kuromi1">
 
-<img class="sticker sticker2" src="https://upload.wikimedia.org/wikipedia/en/7/72/Kuromi.png">
+<img class="sticker sticker2" src="Kuromi2">
 
-<img class="sticker sticker3" src="https://upload.wikimedia.org/wikipedia/en/7/72/Kuromi.png">
+<img class="sticker sticker3" src="Kuromi3">
 
-<img class="sticker sticker4" src="https://upload.wikimedia.org/wikipedia/en/7/72/Kuromi.png">
+<img class="sticker sticker4" src="Kuromi4">
 <!-- MÚSICA -->
 
 <audio id="music" loop>
