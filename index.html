@@ -227,7 +227,47 @@ opacity:0.8;
 50%{transform:translateY(10px);}
 100%{transform:translateY(0);}
 }
+@keyframes pulse{
+0%{
+transform:scale(1);
+opacity:0.5;
+}
+50%{
+transform:scale(1.4);
+opacity:1;
+}
+100%{
+transform:scale(1);
+opacity:0.5;
+}
+}
 
+@keyframes heartBeat{
+0%{
+transform:translate(-50%, -50%) scale(1);
+}
+25%{
+transform:translate(-50%, -50%) scale(1.15);
+}
+50%{
+transform:translate(-50%, -50%) scale(1);
+}
+75%{
+transform:translate(-50%, -50%) scale(1.15);
+}
+100%{
+transform:translate(-50%, -50%) scale(1);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
 </style>
 </head>
 <body>
@@ -407,12 +447,159 @@ music.play();
 }
 
 function finale(){
+
 document.getElementById('explosion').style.display='block';
 
+/* Cambiar música */
 music.pause();
 finalMusic.play();
-}
-</script>
 
-</body>
-</html>
+/* Crear fondo oscuro cinematográfico */
+document.body.style.background = "black";
+
+/* Overlay de estrellas */
+const stars = document.createElement("div");
+stars.id = "starsOverlay";
+
+stars.style.position = "fixed";
+stars.style.top = "0";
+stars.style.left = "0";
+stars.style.width = "100%";
+stars.style.height = "100%";
+stars.style.background = "radial-gradient(circle at center, rgba(255,255,255,0.08), black)";
+stars.style.zIndex = "999";
+stars.style.pointerEvents = "none";
+stars.style.overflow = "hidden";
+
+document.body.appendChild(stars);
+
+/* Crear estrellas */
+for(let i = 0; i < 120; i++){
+
+const star = document.createElement("div");
+
+star.innerHTML = "✨";
+
+star.style.position = "absolute";
+star.style.left = Math.random() * 100 + "vw";
+star.style.top = Math.random() * 100 + "vh";
+
+star.style.fontSize = (8 + Math.random() * 18) + "px";
+
+star.style.opacity = Math.random();
+
+star.style.animation = `pulse ${2 + Math.random()*3}s infinite`;
+
+stars.appendChild(star);
+
+}
+
+/* Crear corazón gigante */
+const heart = document.createElement("div");
+
+heart.innerHTML = "💖";
+
+heart.style.position = "fixed";
+heart.style.top = "50%";
+heart.style.left = "50%";
+heart.style.transform = "translate(-50%, -50%)";
+
+heart.style.fontSize = "7rem";
+
+heart.style.zIndex = "1001";
+
+heart.style.animation = "heartBeat 2s infinite";
+
+document.body.appendChild(heart);
+
+/* Frases románticas */
+const messages = [
+
+"Gracias por llegar a mi vida 🤍",
+"Gracias por quedarte 😌💕",
+"Gracias por hacerme sentir amado ❤️",
+"Con vos todo se siente más bonito ✨",
+"Te elegiría mil veces más 💌",
+"Ahora sos mi lugar seguro 🤍"
+
+];
+
+let delay = 0;
+
+messages.forEach((text,index)=>{
+
+setTimeout(()=>{
+
+const msg = document.createElement("div");
+
+msg.innerHTML = text;
+
+msg.style.position = "fixed";
+msg.style.top = 20 + (index * 10) + "%";
+msg.style.width = "100%";
+
+msg.style.textAlign = "center";
+
+msg.style.fontSize = "2rem";
+
+msg.style.color = "white";
+
+msg.style.zIndex = "1002";
+
+msg.style.opacity = "0";
+
+msg.style.transition = "2s";
+
+document.body.appendChild(msg);
+
+setTimeout(()=>{
+msg.style.opacity = "1";
+},100);
+
+},delay);
+
+delay += 2500;
+
+});
+
+/* Texto final */
+setTimeout(()=>{
+
+const finalText = document.createElement("div");
+
+finalText.innerHTML = `
+<div style="
+font-size:4rem;
+font-weight:bold;
+margin-bottom:20px;
+">
+20 de mayo 💌
+</div>
+
+<div style="
+font-size:2rem;
+line-height:1.8;
+">
+Gracias por convertirte en una de las partes más bonitas de mi vida 😌💕
+</div>
+`;
+
+finalText.style.position = "fixed";
+finalText.style.top = "50%";
+finalText.style.left = "50%";
+
+finalText.style.transform = "translate(-50%, -50%)";
+
+finalText.style.textAlign = "center";
+
+finalText.style.color = "white";
+
+finalText.style.zIndex = "2000";
+
+finalText.style.animation = "fadeIn 3s ease";
+
+document.body.appendChild(finalText);
+
+},17000);
+
+}
