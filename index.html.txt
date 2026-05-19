@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi persona favorita 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0f0f0f;
+overflow-x:hidden;
+color:white;
+scroll-behavior:smooth;
+}
+
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:60px 20px;
+position:relative;
+}
+
+/* Fondo */
+.bg{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.4);
+z-index:-2;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+z-index:-1;
+}
+
+/* Corazones */
+.heart{
+position:fixed;
+color:rgba(255,255,255,0.7);
+animation:float 10s linear infinite;
+pointer-events:none;
+z-index:999;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1.5);
+opacity:0;
+}
+}
+
+/* Intro */
+.intro{
+text-align:center;
+max-width:900px;
+}
+
+.intro h1{
+font-size:5rem;
+margin-bottom:20px;
+text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+.intro p{
+font-size:1.4rem;
+opacity:0.9;
+margin-bottom:35px;
+}
+
+button{
+padding:16px 40px;
+border:none;
+border-radius:40px;
+font-size:1.1rem;
+cursor:pointer;
+transition:0.3s;
+font-weight:600;
+}
+
+.mainBtn{
+background:#ff4f87;
+color:white;
+box-shadow:0 0 25px rgba(255,79,135,0.5);
+}
+
+.mainBtn:hover{
+transform:scale(1.08);
+}
+
+.musicBtn{
+margin-top:20px;
+background:white;
+color:#ff4f87;
+}
+
+/* Cards */
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:40px;
+border-radius:30px;
+max-width:900px;
+line-height:2;
+font-size:1.1rem;
+box-shadow:0 0 30px rgba(0,0,0,0.3);
+animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.card h2{
+margin-bottom:25px;
+font-size:2.5rem;
+color:#ffd1e3;
+}
+
+.highlight{
+color:#ff9fc1;
+font-weight:bold;
+}
+
+/* Fotos */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.gallery img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:25px;
+transition:0.4s;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+/* Final */
+.final{
+text-align:center;
+}
+
+.final h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.final p{
+font-size:1.4rem;
+max-width:800px;
+line-height:2;
+margin:auto;
+}
+
+.loveBtn{
+margin-top:35px;
+background:#ff4f87;
+color:white;
+}
+
+#explosion{
+font-size:3rem;
+margin-top:25px;
+display:none;
+animation:pop 1s ease;
+}
+
+@keyframes pop{
+0%{
+transform:scale(0);
+opacity:0;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.scroll{
+position:absolute;
+bottom:30px;
+font-size:1rem;
+animation:updown 2s infinite;
+opacity:0.8;
+}
+
+@keyframes updown{
+0%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+100%{transform:translateY(0);}
+}
+
+</style>
+</head>
+<body>
+
+<!-- Música -->
+<audio id="music" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="finalMusic" loop>
+<source src="final.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Corazones -->
+<script>
+for(let i=0;i<50;i++){
+const heart=document.createElement('div');
+heart.classList.add('heart');
+heart.innerHTML='❤️';
+heart.style.left=Math.random()*100+'vw';
+heart.style.fontSize=(15+Math.random()*25)+'px';
+heart.style.animationDuration=(5+Math.random()*6)+'s';
+document.body.appendChild(heart);
+}
+</script>
+
+<!-- INTRO -->
+<section>
+<img class="bg" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
+<div class="overlay"></div>
+
+<div class="intro">
+<h1>20 de mayo 💌</h1>
+<p>
+Para mi persona favorita 💕
+</p>
+
+<button class="mainBtn" onclick="document.getElementById('carta1').scrollIntoView({behavior:'smooth'})">
+Abrir carta 💌
+</button>
+
+<br>
+
+<button class="musicBtn" onclick="playMusic()">
+🎵 Reproducir música
+</button>
+
+<div class="scroll">
+↓ Deslizá ↓
+</div>
+</div>
+</section>
+
+<!-- CARTA 1 -->
+<section id="carta1">
+<img class="bg" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1600&auto=format&fit=crop">
+<div class="overlay"></div>
+
+<div class="card">
+<h2>Quién diría... 💕</h2>
+
+<p>
+Quién diría que una persona podía llegar a significar tanto en tan poco tiempo. Porque sinceramente, desde que llegaste a mi vida, empezaste a convertir días normales en recuerdos que quiero guardar para siempre.
+<br><br>
+Y creo que eso es lo más bonito de todo esto… que apareciste sin hacer ruido, sin forzar nada, y aun así lograste cambiar muchísimas cosas dentro de mí.
+<br><br>
+No sé exactamente en qué momento comenzaste a volverte tan importante para mí.
+</p>
+</div>
+</section>
+
+<!-- CARTA 2 -->
+<section>
+<img class="bg" src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1600&auto=format&fit=crop">
+<div class="overlay"></div>
+
+<div class="card">
+<h2>Me acostumbraste a vos 😌💕</h2>
+
+<p>
+Tal vez fue entre nuestras llamadas de madrugada, entre las conversaciones donde el tiempo se pasaba demasiado rápido o entre esos momentos simples donde no hacía falta hacer nada especial para sentirme feliz.
+<br><br>
+<span class="highlight">
+Me acostumbraste demasiado rápido a vos.
+</span>
+<br><br>
+A tus mensajes.
+<br>
+A tus audios.
+<br>
+A pensar en cómo estará tu día.
+<br>
+A sonreír cuando veo una notificación tuya.
+</p>
+</div>
+</section>
+
+<!-- CARTA 3 -->
+<section>
+<img class="bg" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1600&auto=format&fit=crop">
+<div class="overlay"></div>
+
+<div class="card">
+<h2>Me enamoré de vos 🤍</h2>
+
+<p>
+Me enamoré de tu forma de ser, de tu voz, de tus ojos, de esa manera tan única que tenés de hacerme sentir tranquilo incluso cuando mi cabeza está llena de cosas.
+<br><br>
+También me enamora la forma en la que poco a poco me dejaste conocerte de verdad.
+<br><br>
+Porque si soy sincero, no siento que tenga que buscar perfección en vos…
+<br><br>
+<span class="highlight">
+Ya sos perfecta para mí simplemente siendo quien sos.
+</span>
+</p>
+</div>
+</section>
+
+<!-- GALERIA -->
+<section>
+<img class="bg" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
+<div class="overlay"></div>
+
+<div class="card">
+<h2>Nuestros recuerdos 📸</h2>
+
+<p>
+Acá podés poner fotos de ella o de ustedes.
+</p>
+
+<div class="gallery">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+</div>
+</div>
+</section>
+
+<!-- FINAL -->
+<section>
+<img class="bg" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1600&auto=format&fit=crop">
+<div class="overlay"></div>
+
+<div class="card final">
+<h1>Te amo muchísimo 🤍</h1>
+
+<p>
+Hoy es el día de las cartas de amor 💌
+<br><br>
+Pero creo que lo más lindo de esta fecha no es simplemente escribir una carta, sino tener a alguien que realmente inspire cada palabra que sale del corazón.
+<br><br>
+Y vos te convertiste exactamente en eso para mí.
+<br><br>
+Gracias por convertirte en una de las partes más bonitas de mi vida 🤍
+</p>
+
+<button class="loveBtn" onclick="finale()">
+❤️ Tocar corazón ❤️
+</button>
+
+<div id="explosion">
+💖 💕 ❤️ 💘 💞
+<br><br>
+Ahora y siempre, vos 😌💕
+</div>
+
+</div>
+</section>
+
+<script>
+const music=document.getElementById('music');
+const finalMusic=document.getElementById('finalMusic');
+
+function playMusic(){
+music.play();
+}
+
+function finale(){
+document.getElementById('explosion').style.display='block';
+
+music.pause();
+finalMusic.play();
+}
+</script>
+
+</body>
+</html>
