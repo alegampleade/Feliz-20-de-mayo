@@ -747,18 +747,18 @@ automáticamente pienso en vos ✨
 
 <div class="musicButtons">
 
-<a href="https://www.youtube.com/watch?v=D6XR9GfBfwY" target="_blank">
+<button class="songBtn"
+onclick="playSong('dardos.mp3')">
 
-<button class="songBtn">
 🎯 Dardos
+
 </button>
 
-</a>
+<button class="songBtn"
+onclick="playSong('amarrame.mp3')">
 
-<a href="https://www.youtube.com/watch?v=l_ZyDlTfndE" target="_blank">
-
-<button class="songBtn">
 💕 Amárrame
+
 </button>
 
 </a>
@@ -959,4 +959,28 @@ overlay.appendChild(floatingHeart);
 </script>
 
 </body>
+
+<script>
+
+const player = new Audio();
+
+function playSong(song){
+
+/* pausar música principal */
+
+music.pause();
+
+finalMusic.pause();
+
+/* reiniciar reproductor */
+
+player.pause();
+
+player.src = song;
+
+player.play();
+
+}
+
+</script>
 </html>
