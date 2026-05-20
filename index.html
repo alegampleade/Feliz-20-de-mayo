@@ -812,7 +812,7 @@ const finalMusic = document.getElementById('finalMusic');
 const player = new Audio();
 
 /* ========================= */
-/* DETENER TODO */
+/* DETENER TODAS LAS CANCIONES */
 /* ========================= */
 
 function stopAllMusic(){
@@ -857,64 +857,138 @@ function playSong(song){
 
 function finale(){
 
-stopAllMusic();
+    stopAllMusic();
 
-finalMusic.play();
+    finalMusic.play();
 
-const overlay=document.createElement("div");
+    const overlay = document.createElement("div");
 
-overlay.style.position="fixed";
-overlay.style.top="0";
-overlay.style.left="0";
-overlay.style.width="100%";
-overlay.style.height="100%";
-overlay.style.background="radial-gradient(circle at center, #1a1a2e, #000)";
-overlay.style.zIndex="99999";
-overlay.style.display="flex";
-overlay.style.flexDirection="column";
-overlay.style.justifyContent="center";
-overlay.style.alignItems="center";
-overlay.style.textAlign="center";
-overlay.style.overflowY="auto";
-overlay.style.padding="50px 20px";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "radial-gradient(circle at center, #1a1a2e, #000)";
+    overlay.style.zIndex = "99999";
+    overlay.style.display = "flex";
+    overlay.style.flexDirection = "column";
+    overlay.style.justifyContent = "center";
+    overlay.style.alignItems = "center";
+    overlay.style.textAlign = "center";
+    overlay.style.overflowY = "auto";
+    overlay.style.padding = "50px 20px";
 
-document.body.appendChild(overlay);
+    document.body.appendChild(overlay);
 
-/* ESTRELLAS */
+    /* ESTRELLAS */
 
-for(let i=0;i<120;i++){
+    for(let i=0;i<120;i++){
 
-const star=document.createElement("div");
+        const star=document.createElement("div");
 
-star.innerHTML="✨";
+        star.innerHTML="✨";
 
-star.style.position="absolute";
+        star.style.position="absolute";
 
-star.style.left=Math.random()*100+"vw";
-star.style.top=Math.random()*100+"vh";
+        star.style.left=Math.random()*100+"vw";
+        star.style.top=Math.random()*100+"vh";
 
-star.style.fontSize=(8+Math.random()*18)+"px";
+        star.style.fontSize=(8+Math.random()*18)+"px";
 
-star.style.opacity=Math.random();
+        star.style.opacity=Math.random();
 
-star.style.animation=`pulse ${2+Math.random()*3}s infinite`;
+        star.style.animation=`pulse ${2+Math.random()*3}s infinite`;
 
-overlay.appendChild(star);
+        overlay.appendChild(star);
+    }
 
+    /* CORAZÓN */
+
+    const heart=document.createElement("div");
+
+    heart.innerHTML="💖";
+
+    heart.style.fontSize="8rem";
+    heart.style.marginBottom="30px";
+    heart.style.animation="heartBeat 1.5s infinite";
+    heart.style.zIndex="2";
+
+    overlay.appendChild(heart);
+
+    /* MINI CARTA */
+
+    const miniCard=document.createElement("div");
+
+    miniCard.style.background="rgba(255,255,255,0.08)";
+    miniCard.style.backdropFilter="blur(14px)";
+    miniCard.style.padding="40px";
+    miniCard.style.borderRadius="30px";
+    miniCard.style.maxWidth="900px";
+    miniCard.style.lineHeight="2";
+    miniCard.style.fontSize="1.2rem";
+    miniCard.style.color="white";
+    miniCard.style.zIndex="2";
+    miniCard.style.animation="fadeIn 3s ease";
+    miniCard.style.marginBottom="50px";
+
+    miniCard.innerHTML=`
+
+    <h1 style="
+    margin-bottom:30px;
+    font-size:3rem;
+    color:#ffd1e3;
+    ">
+    Para mi persona favorita 💕
+    </h1>
+
+    <p>
+
+    Gracias por llegar a mi vida de una manera tan inesperada
+    y aun así convertirte en alguien tan importante para mí 😌💕
+
+    <br><br>
+
+    Y sinceramente…
+    no quiero perder todo esto tan bonito que construimos juntos 🤍
+
+    <br><br>
+
+    Porque ahora entiendo que algunas personas llegan
+    para cambiarte la vida de la manera más linda posible ✨
+
+    </p>
+
+    `;
+
+    overlay.appendChild(miniCard);
+
+    /* CORAZONES */
+
+    for(let i=0;i<60;i++){
+
+        const floatingHeart=document.createElement("div");
+
+        floatingHeart.innerHTML="💖";
+
+        floatingHeart.style.position="absolute";
+
+        floatingHeart.style.left=Math.random()*100+"vw";
+
+        floatingHeart.style.bottom="-50px";
+
+        floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
+
+        floatingHeart.style.opacity="0.8";
+
+        floatingHeart.style.animation=`
+        floatUp ${5+Math.random()*5}s linear infinite
+        `;
+
+        overlay.appendChild(floatingHeart);
+    }
 }
 
-/* CORAZÓN */
-
-const heart=document.createElement("div");
-
-heart.innerHTML="💖";
-
-heart.style.fontSize="8rem";
-heart.style.marginBottom="30px";
-heart.style.animation="heartBeat 1.5s infinite";
-heart.style.zIndex="2";
-
-overlay.appendChild(heart);
+</script>
 
 /* MINI CARTA */
 
