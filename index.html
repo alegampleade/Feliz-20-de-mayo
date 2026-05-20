@@ -278,6 +278,99 @@ box-shadow:0 0 20px rgba(0,0,0,0.4);
 transform:scale(1.03);
 }
 
+/* MUSIC CARD */
+
+.musicCard{
+
+width:100%;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(14px);
+
+padding:25px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:0 0 25px rgba(0,0,0,0.3);
+}
+
+.musicCard img{
+
+width:100%;
+
+max-width:700px;
+
+border-radius:25px;
+
+margin-bottom:25px;
+
+box-shadow:0 0 25px rgba(255,105,180,0.25);
+}
+
+.musicCard h3{
+
+font-size:2rem;
+
+margin-bottom:15px;
+
+color:#ffd1e3;
+}
+
+.musicText{
+
+font-size:1.1rem;
+
+line-height:1.8;
+
+opacity:0.9;
+
+margin-bottom:30px;
+}
+
+.musicButtons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+}
+
+.songBtn{
+
+background:#ff4f87;
+
+color:white;
+
+padding:15px 30px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:1rem;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 20px rgba(255,79,135,0.35);
+}
+
+.songBtn:hover{
+
+transform:scale(1.08);
+
+background:#ff6a9d;
+}
+
 /* FINAL */
 
 .final{
@@ -388,11 +481,11 @@ opacity:0;
 <!-- MÚSICA -->
 
 <audio id="music" loop>
-<source src="Piano.mp3" type="audio/mpeg">
+<source src="hijodelaluna.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="finalMusic" loop>
-<source src="amarrame.mp3" type="audio/mpeg">
+<source src="Piano.mp3" type="audio/mpeg">
 </audio>
 
 <!-- CORAZONES -->
@@ -637,16 +730,48 @@ pero sí muchos momentos que ya significan muchísimo para mí 🤍
 
 <div class="gallery">
 
-<img src="foto1.jpg">
+<div class="musicCard">
+
+<img src="musica.png">
+
+<h3>Nuestra canción 💕</h3>
+
+
 <img src="foto2.jpg">
 <img src="foto3.jpg">
+
+<p class="musicText">
+Cada vez que escucho estas canciones,
+automáticamente pienso en vos ✨
+</p>
+
+<div class="musicButtons">
+
+<a href="dardo" target="_blank">
+
+<button class="songBtn">
+🎯 Dardos
+</button>
+
+</a>
+
+<a href="amarrame" target="_blank">
+
+<button class="songBtn">
+💕 Amárrame
+</button>
+
+</a>
+
+</div>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
-
 <!-- FINAL -->
 
 <section>
