@@ -810,12 +810,27 @@ const music=document.getElementById('music');
 const finalMusic=document.getElementById('finalMusic');
 
 function playMusic(){
+
+/* pausar canciones individuales */
+
+player.pause();
+
+/* pausar música final */
+
+finalMusic.pause();
+
+/* reproducir música principal */
+
 music.play();
+
 }
 
 function finale(){
 
+player.pause();
+
 music.pause();
+
 finalMusic.play();
 
 const overlay=document.createElement("div");
@@ -966,15 +981,15 @@ const player = new Audio();
 
 function playSong(song){
 
-/* pausar música principal */
+/* pausar todas */
 
 music.pause();
 
 finalMusic.pause();
 
-/* reiniciar reproductor */
-
 player.pause();
+
+/* reproducir seleccionada */
 
 player.src = song;
 
