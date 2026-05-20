@@ -806,6 +806,8 @@ Y gracias por hacerme sentir un amor tan real y bonito 😌💕
 
 <script>
 
+<script>
+
 const music = document.getElementById('music');
 const finalMusic = document.getElementById('finalMusic');
 
@@ -828,7 +830,7 @@ function stopAllMusic(){
 }
 
 /* ========================= */
-/* MÚSICA PRINCIPAL */
+/* BOTÓN MÚSICA PRINCIPAL */
 /* ========================= */
 
 function playMusic(){
@@ -839,7 +841,7 @@ function playMusic(){
 }
 
 /* ========================= */
-/* REPRODUCIR CANCIONES */
+/* BOTONES DE CANCIONES */
 /* ========================= */
 
 function playSong(song){
@@ -880,58 +882,78 @@ function finale(){
 
     document.body.appendChild(overlay);
 
+    /* ========================= */
     /* ESTRELLAS */
+    /* ========================= */
 
     for(let i=0;i<120;i++){
 
-        const star=document.createElement("div");
+        const star = document.createElement("div");
 
-        star.innerHTML="✨";
+        star.innerHTML = "✨";
 
-        star.style.position="absolute";
+        star.style.position = "absolute";
 
-        star.style.left=Math.random()*100+"vw";
-        star.style.top=Math.random()*100+"vh";
+        star.style.left = Math.random()*100 + "vw";
 
-        star.style.fontSize=(8+Math.random()*18)+"px";
+        star.style.top = Math.random()*100 + "vh";
 
-        star.style.opacity=Math.random();
+        star.style.fontSize = (8+Math.random()*18) + "px";
 
-        star.style.animation=`pulse ${2+Math.random()*3}s infinite`;
+        star.style.opacity = Math.random();
+
+        star.style.animation = `pulse ${2+Math.random()*3}s infinite`;
 
         overlay.appendChild(star);
     }
 
-    /* CORAZÓN */
+    /* ========================= */
+    /* CORAZÓN GRANDE */
+    /* ========================= */
 
-    const heart=document.createElement("div");
+    const heart = document.createElement("div");
 
-    heart.innerHTML="💖";
+    heart.innerHTML = "💖";
 
-    heart.style.fontSize="8rem";
-    heart.style.marginBottom="30px";
-    heart.style.animation="heartBeat 1.5s infinite";
-    heart.style.zIndex="2";
+    heart.style.fontSize = "8rem";
+
+    heart.style.marginBottom = "30px";
+
+    heart.style.animation = "heartBeat 1.5s infinite";
+
+    heart.style.zIndex = "2";
 
     overlay.appendChild(heart);
 
+    /* ========================= */
     /* MINI CARTA */
+    /* ========================= */
 
-    const miniCard=document.createElement("div");
+    const miniCard = document.createElement("div");
 
-    miniCard.style.background="rgba(255,255,255,0.08)";
-    miniCard.style.backdropFilter="blur(14px)";
-    miniCard.style.padding="40px";
-    miniCard.style.borderRadius="30px";
-    miniCard.style.maxWidth="900px";
-    miniCard.style.lineHeight="2";
-    miniCard.style.fontSize="1.2rem";
-    miniCard.style.color="white";
-    miniCard.style.zIndex="2";
-    miniCard.style.animation="fadeIn 3s ease";
-    miniCard.style.marginBottom="50px";
+    miniCard.style.background = "rgba(255,255,255,0.08)";
 
-    miniCard.innerHTML=`
+    miniCard.style.backdropFilter = "blur(14px)";
+
+    miniCard.style.padding = "40px";
+
+    miniCard.style.borderRadius = "30px";
+
+    miniCard.style.maxWidth = "900px";
+
+    miniCard.style.lineHeight = "2";
+
+    miniCard.style.fontSize = "1.2rem";
+
+    miniCard.style.color = "white";
+
+    miniCard.style.zIndex = "2";
+
+    miniCard.style.animation = "fadeIn 3s ease";
+
+    miniCard.style.marginBottom = "50px";
+
+    miniCard.innerHTML = `
 
     <h1 style="
     margin-bottom:30px;
@@ -948,13 +970,30 @@ function finale(){
 
     <br><br>
 
-    Y sinceramente…
-    no quiero perder todo esto tan bonito que construimos juntos 🤍
+    Quizás todavía me pongo nervioso algunas veces cuando hablamos,
+    quizás sigo pensando demasiado en vos
+    o sigo emocionándome con cosas pequeñas…
 
     <br><br>
 
-    Porque ahora entiendo que algunas personas llegan
-    para cambiarte la vida de la manera más linda posible ✨
+    Pero supongo que eso pasa
+    cuando alguien logra tocarte el corazón de verdad 🤍
+
+    <br><br>
+
+    Y sinceramente,
+    vos lograste eso conmigo de una manera que jamás voy a olvidar.
+
+    <br><br>
+
+    Quiero seguir creando recuerdos con vos.
+    Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
+    Quiero seguir haciéndote sentir querida incluso en tus peores días.
+
+    <br><br>
+
+    Porque si algo tengo claro…
+    es que no quiero perder todo esto tan bonito que construimos juntos 😌💕
 
     </p>
 
@@ -962,25 +1001,27 @@ function finale(){
 
     overlay.appendChild(miniCard);
 
-    /* CORAZONES */
+    /* ========================= */
+    /* CORAZONES FLOTANDO */
+    /* ========================= */
 
     for(let i=0;i<60;i++){
 
-        const floatingHeart=document.createElement("div");
+        const floatingHeart = document.createElement("div");
 
-        floatingHeart.innerHTML="💖";
+        floatingHeart.innerHTML = "💖";
 
-        floatingHeart.style.position="absolute";
+        floatingHeart.style.position = "absolute";
 
-        floatingHeart.style.left=Math.random()*100+"vw";
+        floatingHeart.style.left = Math.random()*100 + "vw";
 
-        floatingHeart.style.bottom="-50px";
+        floatingHeart.style.bottom = "-50px";
 
-        floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
+        floatingHeart.style.fontSize = (15+Math.random()*30) + "px";
 
-        floatingHeart.style.opacity="0.8";
+        floatingHeart.style.opacity = "0.8";
 
-        floatingHeart.style.animation=`
+        floatingHeart.style.animation = `
         floatUp ${5+Math.random()*5}s linear infinite
         `;
 
@@ -990,205 +1031,5 @@ function finale(){
 
 </script>
 
-/* MINI CARTA */
-
-const miniCard=document.createElement("div");
-
-miniCard.style.background="rgba(255,255,255,0.08)";
-miniCard.style.backdropFilter="blur(14px)";
-miniCard.style.padding="40px";
-miniCard.style.borderRadius="30px";
-miniCard.style.maxWidth="900px";
-miniCard.style.lineHeight="2";
-miniCard.style.fontSize="1.2rem";
-miniCard.style.color="white";
-miniCard.style.zIndex="2";
-miniCard.style.animation="fadeIn 3s ease";
-miniCard.style.marginBottom="50px";
-
-miniCard.innerHTML=`
-
-<h1 style="
-margin-bottom:30px;
-font-size:3rem;
-color:#ffd1e3;
-">
-Para mi persona favorita 💕
-</h1>
-
-<p>
-
-Gracias por llegar a mi vida de una manera tan inesperada
-y aun así convertirte en alguien tan importante para mí 😌💕
-
-<br><br>
-
-Quizás todavía me pongo nervioso algunas veces cuando hablamos,
-quizás sigo pensando demasiado en vos
-o sigo emocionándome con cosas pequeñas…
-
-<br><br>
-
-Pero supongo que eso pasa
-cuando alguien logra tocarte el corazón de verdad 🤍
-
-<br><br>
-
-Y sinceramente,
-vos lograste eso conmigo de una manera que jamás voy a olvidar.
-
-<br><br>
-
-Quiero seguir creando recuerdos con vos.
-Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
-Quiero seguir haciéndote sentir querida incluso en tus peores días.
-
-<br><br>
-
-Porque si algo tengo claro…
-es que no quiero perder todo esto tan bonito que construimos juntos 😌💕
-
-</p>
-
-`;
-
-overlay.appendChild(miniCard);
-
-/* CORAZONES FLOTANDO */
-
-for(let i=0;i<60;i++){
-
-const floatingHeart=document.createElement("div");
-
-floatingHeart.innerHTML="💖";
-
-floatingHeart.style.position="absolute";
-
-floatingHeart.style.left=Math.random()*100+"vw";
-
-floatingHeart.style.bottom="-50px";
-
-floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
-
-floatingHeart.style.opacity="0.8";
-
-floatingHeart.style.animation=`
-floatUp ${5+Math.random()*5}s linear infinite
-`;
-
-overlay.appendChild(floatingHeart);
-
-}
-
-}
-/* Mini carta */
-
-const miniCard=document.createElement("div");
-
-miniCard.style.background="rgba(255,255,255,0.08)";
-miniCard.style.backdropFilter="blur(14px)";
-miniCard.style.padding="40px";
-miniCard.style.borderRadius="30px";
-miniCard.style.maxWidth="900px";
-miniCard.style.lineHeight="2";
-miniCard.style.fontSize="1.2rem";
-miniCard.style.color="white";
-miniCard.style.zIndex="2";
-miniCard.style.animation="fadeIn 3s ease";
-miniCard.style.marginBottom="50px";
-
-miniCard.innerHTML=`
-
-<h1 style="
-margin-bottom:30px;
-font-size:3rem;
-color:#ffd1e3;
-">
-Para mi persona favorita 💕
-</h1>
-
-<p>
-
-Gracias por llegar a mi vida de una manera tan inesperada y aun así convertirte en alguien tan importante para mí 😌💕
-
-<br><br>
-
-Quizás todavía me pongo nervioso algunas veces cuando hablamos, quizás sigo pensando demasiado en vos o sigo emocionándome con cosas pequeñas… pero supongo que eso pasa cuando alguien logra tocarte el corazón de verdad.
-
-<br><br>
-
-Y sinceramente, vos lograste eso conmigo de una manera que jamás voy a olvidar 🤍
-
-<br><br>
-
-Quiero seguir creando recuerdos con vos.
-Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
-Quiero seguir haciéndote sentir querida incluso en tus peores días.
-
-<br><br>
-
-Porque si algo tengo claro…
-es que no quiero perder todo esto tan bonito que construimos juntos 😌💕
-
-</p>
-
-`;
-
-overlay.appendChild(miniCard);
-
-/* Corazones flotando */
-
-for(let i=0;i<60;i++){
-
-const floatingHeart=document.createElement("div");
-
-floatingHeart.innerHTML="💖";
-
-floatingHeart.style.position="absolute";
-
-floatingHeart.style.left=Math.random()*100+"vw";
-
-floatingHeart.style.bottom="-50px";
-
-floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
-
-floatingHeart.style.opacity="0.8";
-
-floatingHeart.style.animation=`
-floatUp ${5+Math.random()*5}s linear infinite
-`;
-
-overlay.appendChild(floatingHeart);
-
-}
-
-}
-
-</script>
-
 </body>
-
-<script>
-
-const player = new Audio();
-
-function playSong(song){
-
-/* pausar todas */
-
-music.pause();
-
-finalMusic.pause();
-
-player.pause();
-
-/* reproducir seleccionada */
-
-player.src = song;
-
-player.play();
-
-}
-
-</script>
 </html>
