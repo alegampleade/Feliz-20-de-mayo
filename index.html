@@ -629,198 +629,237 @@ Gracias por convertirte en una de las partes más bonitas de mi vida 😌💕
 
 <script>
 
-/* CORAZONES */
+/* ========================= */
+/* CORAZONES FLOTANDO */
+/* ========================= */
 
-for(let i=0;i<50;i++){
+for(let i = 0; i < 50; i++){
 
-const heart=document.createElement('div');
+    const heart = document.createElement("div");
 
-heart.classList.add('heart');
+    heart.classList.add("heart");
 
-heart.innerHTML='❤️';
+    heart.innerHTML = "❤️";
 
-heart.style.left=Math.random()*100+'vw';
+    heart.style.left = Math.random() * 100 + "vw";
 
-heart.style.fontSize=(15+Math.random()*25)+'px';
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
 
-heart.style.animationDuration=(5+Math.random()*6)+'s';
+    heart.style.animationDuration = (5 + Math.random() * 6) + "s";
 
-document.body.appendChild(heart);
-
+    document.body.appendChild(heart);
 }
 
+/* ========================= */
 /* AUDIOS */
+/* ========================= */
 
 const music = document.getElementById("music");
-
 const finalMusic = document.getElementById("finalMusic");
 
 const player = new Audio();
 
+/* ========================= */
 /* DETENER TODO */
+/* ========================= */
 
 function stopAllMusic(){
 
-music.pause();
-music.currentTime = 0;
+    music.pause();
+    music.currentTime = 0;
 
-finalMusic.pause();
-finalMusic.currentTime = 0;
+    finalMusic.pause();
+    finalMusic.currentTime = 0;
 
-player.pause();
-player.currentTime = 0;
-
+    player.pause();
+    player.currentTime = 0;
 }
 
+/* ========================= */
 /* MÚSICA PRINCIPAL */
+/* ========================= */
 
 function playMusic(){
 
-stopAllMusic();
+    stopAllMusic();
 
-music.play();
-
+    music.play().catch(error => {
+        console.log(error);
+    });
 }
 
-/* CANCIONES */
+/* ========================= */
+/* REPRODUCIR CANCIONES */
+/* ========================= */
 
 function playSong(song){
 
-stopAllMusic();
+    stopAllMusic();
 
-player.src = song;
+    player.src = song;
 
-player.play();
-
+    player.play().catch(error => {
+        console.log(error);
+    });
 }
 
+/* ========================= */
 /* FINAL */
+/* ========================= */
 
 function finale(){
 
-stopAllMusic();
+    stopAllMusic();
 
-finalMusic.play();
+    finalMusic.play().catch(error => {
+        console.log(error);
+    });
 
-const overlay = document.createElement("div");
+    /* OVERLAY */
 
-overlay.style.position = "fixed";
-overlay.style.top = "0";
-overlay.style.left = "0";
-overlay.style.width = "100%";
-overlay.style.height = "100%";
-overlay.style.background = "radial-gradient(circle at center, #1a1a2e, #000)";
-overlay.style.zIndex = "99999";
-overlay.style.display = "flex";
-overlay.style.flexDirection = "column";
-overlay.style.justifyContent = "center";
-overlay.style.alignItems = "center";
-overlay.style.textAlign = "center";
-overlay.style.overflowY = "auto";
-overlay.style.padding = "50px 20px";
+    const overlay = document.createElement("div");
 
-document.body.appendChild(overlay);
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "radial-gradient(circle at center, #1a1a2e, #000)";
+    overlay.style.zIndex = "99999";
+    overlay.style.display = "flex";
+    overlay.style.flexDirection = "column";
+    overlay.style.justifyContent = "center";
+    overlay.style.alignItems = "center";
+    overlay.style.textAlign = "center";
+    overlay.style.overflowY = "auto";
+    overlay.style.padding = "50px 20px";
 
-/* CORAZÓN */
+    document.body.appendChild(overlay);
 
-const bigHeart=document.createElement("div");
+    /* ESTRELLAS */
 
-bigHeart.innerHTML="💖";
+    for(let i = 0; i < 100; i++){
 
-bigHeart.style.fontSize="8rem";
+        const star = document.createElement("div");
 
-bigHeart.style.marginBottom="30px";
+        star.innerHTML = "✨";
 
-bigHeart.style.animation="heartBeat 1.5s infinite";
+        star.style.position = "absolute";
 
-overlay.appendChild(bigHeart);
+        star.style.left = Math.random() * 100 + "vw";
 
-/* MINI CARTA */
+        star.style.top = Math.random() * 100 + "vh";
 
-const miniCard=document.createElement("div");
+        star.style.fontSize = (8 + Math.random() * 18) + "px";
 
-miniCard.style.background="rgba(255,255,255,0.08)";
-miniCard.style.backdropFilter="blur(14px)";
-miniCard.style.padding="40px";
-miniCard.style.borderRadius="30px";
-miniCard.style.maxWidth="900px";
-miniCard.style.lineHeight="2";
-miniCard.style.fontSize="1.2rem";
-miniCard.style.color="white";
+        star.style.opacity = Math.random();
 
-miniCard.innerHTML=`
+        star.style.animation = `pulse ${2 + Math.random() * 3}s infinite`;
 
-<h1 style="
-margin-bottom:30px;
-font-size:3rem;
-color:#ffd1e3;
-">
-Para mi persona favorita 💕
-</h1>
+        overlay.appendChild(star);
+    }
 
-<p>
+    /* CORAZÓN */
 
-Gracias por llegar a mi vida de una manera tan inesperada
-y aun así convertirte en alguien tan importante para mí 😌💕
+    const bigHeart = document.createElement("div");
 
-<br><br>
+    bigHeart.innerHTML = "💖";
 
-Quizás todavía me pongo nervioso algunas veces cuando hablamos,
-quizás sigo pensando demasiado en vos
-o sigo emocionándome con cosas pequeñas…
+    bigHeart.style.fontSize = "8rem";
 
-<br><br>
+    bigHeart.style.marginBottom = "30px";
 
-Pero supongo que eso pasa
-cuando alguien logra tocarte el corazón de verdad 🤍
+    bigHeart.style.animation = "heartBeat 1.5s infinite";
 
-<br><br>
+    bigHeart.style.zIndex = "2";
 
-Quiero seguir creando recuerdos con vos.
-Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
+    overlay.appendChild(bigHeart);
 
-<br><br>
+    /* MINI CARTA */
 
-Porque si algo tengo claro…
-es que no quiero perder todo esto tan bonito que construimos juntos 😌💕
+    const miniCard = document.createElement("div");
 
-<br><br>
+    miniCard.style.background = "rgba(255,255,255,0.08)";
+    miniCard.style.backdropFilter = "blur(14px)";
+    miniCard.style.padding = "40px";
+    miniCard.style.borderRadius = "30px";
+    miniCard.style.maxWidth = "900px";
+    miniCard.style.lineHeight = "2";
+    miniCard.style.fontSize = "1.2rem";
+    miniCard.style.color = "white";
+    miniCard.style.zIndex = "2";
+    miniCard.style.animation = "fadeIn 2s ease";
 
-Y ahora sí…
-nuestra relación tiene un nombre 💖
+    miniCard.innerHTML = `
 
-</p>
+    <h1 style="
+    margin-bottom:30px;
+    font-size:3rem;
+    color:#ffd1e3;
+    ">
+    Para mi persona favorita 💕
+    </h1>
 
-`;
+    <p>
 
-overlay.appendChild(miniCard);
+    Gracias por llegar a mi vida de una manera tan inesperada
+    y aun así convertirte en alguien tan importante para mí 😌💕
 
-/* CORAZONES FLOTANDO */
+    <br><br>
 
-for(let i=0;i<60;i++){
+    Quizás todavía me pongo nervioso algunas veces cuando hablamos,
+    quizás sigo pensando demasiado en vos
+    o sigo emocionándome con cosas pequeñas…
 
-const floatingHeart=document.createElement("div");
+    <br><br>
 
-floatingHeart.innerHTML="💖";
+    Pero supongo que eso pasa
+    cuando alguien logra tocarte el corazón de verdad 🤍
 
-floatingHeart.style.position="absolute";
+    <br><br>
 
-floatingHeart.style.left=Math.random()*100+"vw";
+    Quiero seguir creando recuerdos con vos.
+    Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
 
-floatingHeart.style.bottom="-50px";
+    <br><br>
 
-floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
+    Porque si algo tengo claro…
+    es que no quiero perder todo esto tan bonito que construimos juntos 😌💕
 
-floatingHeart.style.opacity="0.8";
+    <br><br>
 
-floatingHeart.style.animation=`
-floatUp ${5+Math.random()*5}s linear infinite
-`;
+    Y ahora sí…
+    nuestra relación tiene un nombre 💖
 
-overlay.appendChild(floatingHeart);
+    </p>
 
-}
+    `;
 
+    overlay.appendChild(miniCard);
+
+    /* CORAZONES FLOTANDO */
+
+    for(let i = 0; i < 60; i++){
+
+        const floatingHeart = document.createElement("div");
+
+        floatingHeart.innerHTML = "💖";
+
+        floatingHeart.style.position = "absolute";
+
+        floatingHeart.style.left = Math.random() * 100 + "vw";
+
+        floatingHeart.style.bottom = "-50px";
+
+        floatingHeart.style.fontSize = (15 + Math.random() * 30) + "px";
+
+        floatingHeart.style.opacity = "0.8";
+
+        floatingHeart.style.animation =
+        `floatUp ${5 + Math.random() * 5}s linear infinite`;
+
+        overlay.appendChild(floatingHeart);
+    }
 }
 
 </script>
