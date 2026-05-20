@@ -941,86 +941,83 @@ function playSong(song){
 
 function finale(){
 
-    stopAllMusic();
+stopAllMusic();
 
-    finalMusic.play().catch(error => {
-        console.log(error);
-    });
+finalMusic.play();
 
-    /* OVERLAY */
+const overlay = document.createElement("div");
 
-    const overlay = document.createElement("div");
+/* OVERLAY */
 
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.background = "radial-gradient(circle at center, #1a1a2e, #000)";
-    overlay.style.zIndex = "99999";
-    overlay.style.display = "flex";
-    overlay.style.flexDirection = "column";
-    overlay.style.justifyContent = "center";
-    overlay.style.alignItems = "center";
-    overlay.style.textAlign = "center";
-    overlay.style.overflowY = "auto";
-    overlay.style.padding = "50px 20px";
+overlay.style.position = "fixed";
+overlay.style.top = "0";
+overlay.style.left = "0";
 
-    document.body.appendChild(overlay);
+overlay.style.width = "100%";
 
-    /* ESTRELLAS */
+/* CAMBIO IMPORTANTE */
+overlay.style.minHeight = "100vh";
 
-    for(let i = 0; i < 100; i++){
+overlay.style.background = "radial-gradient(circle at center, #1a1a2e, #000)";
 
-        const star = document.createElement("div");
+overlay.style.zIndex = "99999";
 
-        star.innerHTML = "✨";
+overlay.style.display = "flex";
+overlay.style.flexDirection = "column";
 
-        star.style.position = "absolute";
+/* CAMBIO IMPORTANTE */
+overlay.style.justifyContent = "flex-start";
 
-        star.style.left = Math.random() * 100 + "vw";
+overlay.style.alignItems = "center";
 
-        star.style.top = Math.random() * 100 + "vh";
+overlay.style.textAlign = "center";
 
-        star.style.fontSize = (8 + Math.random() * 18) + "px";
+overlay.style.overflowY = "auto";
 
-        star.style.opacity = Math.random();
+overlay.style.padding = "50px 20px";
 
-        star.style.animation = `pulse ${2 + Math.random() * 3}s infinite`;
+/* ESPACIO ENTRE ELEMENTOS */
+overlay.style.gap = "40px";
 
-        overlay.appendChild(star);
-    }
+document.body.appendChild(overlay);
 
-    /* CORAZÓN */
+/* CORAZÓN GRANDE */
 
-    const bigHeart = document.createElement("div");
+const bigHeart=document.createElement("div");
 
-    bigHeart.innerHTML = "💖";
+bigHeart.innerHTML="💖";
 
-    bigHeart.style.fontSize = "8rem";
+bigHeart.style.fontSize="8rem";
 
-    bigHeart.style.marginBottom = "30px";
+bigHeart.style.marginTop="40px";
 
-    bigHeart.style.animation = "heartBeat 1.5s infinite";
+bigHeart.style.animation="heartBeat 1.5s infinite";
 
-    bigHeart.style.zIndex = "2";
+overlay.appendChild(bigHeart);
 
-    overlay.appendChild(bigHeart);
+/* MINI CARTA */
 
-    /* MINI CARTA */
+const miniCard=document.createElement("div");
 
-    const miniCard = document.createElement("div");
+miniCard.style.background="rgba(255,255,255,0.08)";
 
-    miniCard.style.background = "rgba(255,255,255,0.08)";
-    miniCard.style.backdropFilter = "blur(14px)";
-    miniCard.style.padding = "40px";
-    miniCard.style.borderRadius = "30px";
-    miniCard.style.maxWidth = "900px";
-    miniCard.style.lineHeight = "2";
-    miniCard.style.fontSize = "1.2rem";
-    miniCard.style.color = "white";
-    miniCard.style.zIndex = "2";
-    miniCard.style.animation = "fadeIn 2s ease";
+miniCard.style.backdropFilter="blur(14px)";
+
+miniCard.style.padding="40px";
+
+miniCard.style.borderRadius="30px";
+
+/* IMPORTANTE */
+miniCard.style.maxWidth="900px";
+miniCard.style.width="100%";
+
+miniCard.style.marginBottom="120px";
+
+miniCard.style.lineHeight="2";
+
+miniCard.style.fontSize="1.2rem";
+
+miniCard.style.color="white";
 
 miniCard.innerHTML=`
 
@@ -1030,109 +1027,103 @@ font-size:3rem;
 color:#ffd1e3;
 text-align:center;
 ">
-Sos mi casualidad favorita 💕
+Con vos todo se siente más bonito 💕
 </h1>
 
 <p>
 
-Hay personas que pasan por tu vida…  
-y después estás vos.
+Si soy sincero…  
+creo que nunca imaginé conectar tanto con alguien de la manera en la que conecté con vos 😌💕
 
 <br><br>
 
-Vos llegaste de una manera tan tranquila  
-que nunca imaginé que terminarías convirtiéndote en alguien tan importante para mí.
+Porque apareciste de una forma tan inesperada  
+y aun así lograste convertirte en una de las personas más importantes para mí.
 
 <br><br>
 
-Y aun así, acá estoy…  
-pensando en vos más de lo que debería 😌💕
+Me gusta hablar con vos.  
+Me gusta escucharte.  
+Me gusta quedarme despierto solamente para compartir un rato más con vos.
 
 <br><br>
 
-Creo que lo más lindo de todo esto  
-es que nunca sentí que tuviera que fingir nada con vos.
+Y aunque quizás para otros sean cosas simples…  
+para mí significan muchísimo 🤍
 
 <br><br>
 
-Con vos puedo ser yo.  
-Puedo hablar de cualquier cosa.  
-Puedo reírme, ponerme sensible, decir tonterías o quedarme en silencio…  
-y aun así sentirme completamente feliz estando a tu lado.
+Porque poco a poco te volviste parte de mi rutina favorita.
 
 <br><br>
 
-Y sinceramente, eso vale muchísimo para mí 🤍
+Me acostumbré a tus mensajes.  
+A tus audios.  
+A emocionarme cuando aparecés.  
+A pensar en vos incluso en los momentos más aleatorios del día.
 
 <br><br>
 
-Porque hoy en día no es fácil encontrar a alguien que te haga sentir paz, confianza y emoción al mismo tiempo.
+Y sinceramente…  
+no quisiera perder ninguna de esas cosas ✨
 
 <br><br>
 
-Pero vos lograste eso conmigo sin siquiera intentarlo.
+Gracias por cada momento bonito que me regalaste.  
+Gracias por las llamadas eternas.  
+Gracias por las películas, las canciones y las conversaciones que terminan haciéndome olvidar del tiempo.
 
 <br><br>
 
-Me gusta la forma en la que poco a poco te volviste parte de mis días.
+Hay algo muy especial en vos.  
+Algo que me da tranquilidad, felicidad y paz al mismo tiempo.
 
 <br><br>
 
-Me gusta emocionarme cuando recibo un mensaje tuyo.  
-Me gusta escuchar tu voz.  
-Me gusta imaginar momentos con vos incluso cuando estamos lejos.
+Y creo que eso es justamente lo que más me enamora 😌💖
 
 <br><br>
 
-Y me gusta saber que, de alguna manera, todo esto nos encontró.
+Quiero seguir creando recuerdos con vos.  
+Quiero seguir compartiendo pequeños momentos que después terminan significando muchísimo.
 
 <br><br>
 
-Quizás todavía tengamos muchísimo por vivir juntos…  
-más películas, más canciones, más llamadas eternas y más recuerdos que todavía ni existen.
-
-<br><br>
-
-Pero sinceramente…  
-si el futuro es con vos, creo que no me da miedo esperar ✨
-
-<br><br>
-
-Porque hay conexiones que simplemente se sienten distintas.
-
-<br><br>
-
-Y la nuestra definitivamente lo es 😌💖
+Porque si algo aprendí desde que llegaste a mi vida…  
+es que las mejores cosas aparecen cuando menos las esperás 🤍
 
 </p>
 
 `;
 
-    overlay.appendChild(miniCard);
+overlay.appendChild(miniCard);
 
-    /* CORAZONES FLOTANDO */
+/* CORAZONES FLOTANDO */
 
-    for(let i = 0; i < 60; i++){
+for(let i=0;i<60;i++){
 
-        const floatingHeart = document.createElement("div");
+const floatingHeart=document.createElement("div");
 
-        floatingHeart.innerHTML = "💖";
+floatingHeart.innerHTML="💖";
 
-        floatingHeart.style.position = "absolute";
+floatingHeart.style.position="absolute";
 
-        floatingHeart.style.left = Math.random() * 100 + "vw";
+floatingHeart.style.left=Math.random()*100+"vw";
 
-        floatingHeart.style.bottom = "-50px";
+floatingHeart.style.bottom="-50px";
 
-        floatingHeart.style.fontSize = (15 + Math.random() * 30) + "px";
+floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
 
-        floatingHeart.style.opacity = "0.8";
+floatingHeart.style.opacity="0.8";
 
-        floatingHeart.style.animation =
-        `floatUp ${5 + Math.random() * 5}s linear infinite`;
+floatingHeart.style.animation=`
+floatUp ${5+Math.random()*5}s linear infinite
+`;
 
-        overlay.appendChild(floatingHeart);
-    }
+overlay.appendChild(floatingHeart);
+
+}
+
 }
 
 </script>
