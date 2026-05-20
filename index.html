@@ -67,7 +67,6 @@ filter:
 drop-shadow(0 0 8px rgba(255,192,203,0.6))
 drop-shadow(0 0 18px rgba(255,105,180,0.3));
 animation:floatSticker 6s ease-in-out infinite;
-transition:0.5s;
 }
 
 .sticker1{
@@ -205,6 +204,11 @@ background:white;
 color:#ff4f87;
 }
 
+.songBtn{
+background:#ff4f87;
+color:white;
+}
+
 /* CARTAS */
 
 .card{
@@ -268,11 +272,6 @@ gap:20px;
 flex-wrap:wrap;
 }
 
-.songBtn{
-background:#ff4f87;
-color:white;
-}
-
 /* FINAL */
 
 .final{
@@ -303,6 +302,21 @@ transform:translateY(0);
 }
 }
 
+@keyframes pulse{
+0%{
+transform:scale(1);
+opacity:0.4;
+}
+50%{
+transform:scale(1.5);
+opacity:1;
+}
+100%{
+transform:scale(1);
+opacity:0.4;
+}
+}
+
 @keyframes heartBeat{
 0%{
 transform:scale(1);
@@ -318,6 +332,15 @@ transform:scale(1.15);
 }
 100%{
 transform:scale(1);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
 }
 }
 
@@ -370,7 +393,9 @@ opacity:0;
 <h1>Para mi persona favorita 💕</h1>
 
 <p>
+
 Hay personas que llegan sin avisar y terminan convirtiéndose en una de las partes más bonitas de tu vida 😌💕
+
 </p>
 
 <button class="mainBtn"
@@ -383,14 +408,16 @@ Abrir carta 💌
 <br>
 
 <button class="musicBtn" onclick="playMusic()">
+
 🎵 Reproducir música
+
 </button>
 
 </div>
 
 </section>
 
-<!-- CARTA -->
+<!-- CARTA 1 -->
 
 <section id="carta1">
 
@@ -404,15 +431,15 @@ Abrir carta 💌
 
 <p>
 
-Quién diría que una persona podía llegar a significar tanto en tan poco tiempo. Porque sinceramente, desde que llegaste a mi vida, empezaste a convertir días normales en recuerdos que quiero guardar para siempre.
+Quién diría que una persona podía llegar a significar tanto en tan poco tiempo.
+
+<br><br>
+
+Desde que llegaste a mi vida, empezaste a convertir días normales en recuerdos que quiero guardar para siempre.
 
 <br><br>
 
 Y creo que eso es lo más bonito de todo esto… que apareciste sin hacer ruido, sin forzar nada, y aun así lograste cambiar muchísimas cosas dentro de mí.
-
-<br><br>
-
-No sé exactamente en qué momento comenzaste a volverte tan importante para mí. Tal vez fue entre nuestras llamadas de madrugada, entre las conversaciones donde el tiempo se pasaba demasiado rápido o entre esos momentos simples donde no hacía falta hacer nada especial para sentirme feliz.
 
 <br><br>
 
@@ -456,7 +483,7 @@ Y sinceramente, no hay una sola parte de eso que quiera perder.
 
 <br><br>
 
-Me enamoré de tu forma de ser, de tu voz, de tus ojos y de esa manera tan única que tenés de hacerme sentir tranquilo incluso cuando mi cabeza está llena de cosas.
+Me enamoré de tu forma de ser, de tu voz y de esa manera tan única que tenés de hacerme sentir tranquilo.
 
 </p>
 
@@ -492,7 +519,7 @@ Tus inseguridades.
 
 <br><br>
 
-Porque si soy sincero, no siento que tenga que buscar perfección en vos…
+Porque si soy sincero…
 
 <br><br>
 
@@ -500,55 +527,11 @@ Porque si soy sincero, no siento que tenga que buscar perfección en vos…
 Ya sos perfecta para mí simplemente siendo quien sos.
 </span>
 
-<br><br>
-
-Y aunque nuestra historia todavía siga creciendo, siento que lo nuestro tiene algo demasiado especial 💕
-
 </p>
 
 </div>
 
 </section>
-
-<!-- CARTA 4 -->
-
-<section>
-
-<img class="bg" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
-
-<div class="overlay"></div>
-
-<div class="card">
-
-<h2>Gracias por existir 💌</h2>
-
-<p>
-
-Gracias por quedarte.
-<br>
-Gracias por confiar en mí.
-<br>
-Gracias por cada madrugada donde hablamos hasta quedarnos dormidos.
-
-<br><br>
-
-Quiero que sepas que voy a seguir esforzándome por hacerte feliz, acompañarte y darte un lugar seguro donde siempre puedas ser vos misma.
-
-<br><br>
-
-Porque si hay algo que tengo claro, es que no quiero que esto sea algo bonito solo por un rato.
-
-<br><br>
-
-Quiero construir recuerdos, confianza y amor con vos 😌💕
-
-</p>
-
-</div>
-
-</section>
-
-<!-- RECUERDOS -->
 
 <!-- RECUERDOS -->
 
@@ -563,8 +546,10 @@ Quiero construir recuerdos, confianza y amor con vos 😌💕
 <h2>Nuestros recuerdos 📸</h2>
 
 <p style="margin-bottom:30px;">
+
 Todavía no tenemos miles de fotos juntos…
 pero sí muchos momentos que ya significan muchísimo para mí 🤍
+
 </p>
 
 <div class="gallery">
@@ -575,11 +560,13 @@ pero sí muchos momentos que ya significan muchísimo para mí 🤍
 
 <img src="musica.png">
 
-<h2>Nuestra canción 💕</h2>
+<h2>Nuestras canciones 💕</h2>
 
 <p style="margin-bottom:20px;">
+
 Cada vez que escucho estas canciones,
 automáticamente pienso en vos ✨
+
 </p>
 
 <div class="musicButtons">
@@ -638,7 +625,7 @@ Gracias por convertirte en una de las partes más bonitas de mi vida 😌💕
 
 </section>
 
-<!-- SCRIPT FINAL -->
+<!-- SCRIPT -->
 
 <script>
 
@@ -736,34 +723,32 @@ document.body.appendChild(overlay);
 
 /* CORAZÓN */
 
-const heart = document.createElement("div");
+const bigHeart=document.createElement("div");
 
-heart.innerHTML = "💖";
+bigHeart.innerHTML="💖";
 
-heart.style.fontSize = "8rem";
+bigHeart.style.fontSize="8rem";
 
-heart.style.marginBottom = "30px";
+bigHeart.style.marginBottom="30px";
 
-heart.style.animation = "heartBeat 1.5s infinite";
+bigHeart.style.animation="heartBeat 1.5s infinite";
 
-overlay.appendChild(heart);
+overlay.appendChild(bigHeart);
 
 /* MINI CARTA */
 
-const miniCard = document.createElement("div");
+const miniCard=document.createElement("div");
 
-miniCard.style.background = "rgba(255,255,255,0.08)";
-miniCard.style.backdropFilter = "blur(14px)";
-miniCard.style.padding = "40px";
-miniCard.style.borderRadius = "30px";
-miniCard.style.maxWidth = "900px";
-miniCard.style.lineHeight = "2";
-miniCard.style.fontSize = "1.2rem";
-miniCard.style.color = "white";
+miniCard.style.background="rgba(255,255,255,0.08)";
+miniCard.style.backdropFilter="blur(14px)";
+miniCard.style.padding="40px";
+miniCard.style.borderRadius="30px";
+miniCard.style.maxWidth="900px";
+miniCard.style.lineHeight="2";
+miniCard.style.fontSize="1.2rem";
+miniCard.style.color="white";
 
-miniCard.innerHTML = `
-
-miniCard.innerHTML = `
+miniCard.innerHTML=`
 
 <h1 style="
 margin-bottom:30px;
@@ -791,14 +776,8 @@ cuando alguien logra tocarte el corazón de verdad 🤍
 
 <br><br>
 
-Y sinceramente,
-vos lograste eso conmigo de una manera que jamás voy a olvidar.
-
-<br><br>
-
 Quiero seguir creando recuerdos con vos.
 Quiero seguir escribiéndote cartas largas aunque después me dé vergüenza.
-Quiero seguir haciéndote sentir querida incluso en tus peores días.
 
 <br><br>
 
@@ -820,21 +799,21 @@ overlay.appendChild(miniCard);
 
 for(let i=0;i<60;i++){
 
-const floatingHeart = document.createElement("div");
+const floatingHeart=document.createElement("div");
 
-floatingHeart.innerHTML = "💖";
+floatingHeart.innerHTML="💖";
 
-floatingHeart.style.position = "absolute";
+floatingHeart.style.position="absolute";
 
-floatingHeart.style.left = Math.random()*100 + "vw";
+floatingHeart.style.left=Math.random()*100+"vw";
 
-floatingHeart.style.bottom = "-50px";
+floatingHeart.style.bottom="-50px";
 
-floatingHeart.style.fontSize = (15+Math.random()*30) + "px";
+floatingHeart.style.fontSize=(15+Math.random()*30)+"px";
 
-floatingHeart.style.opacity = "0.8";
+floatingHeart.style.opacity="0.8";
 
-floatingHeart.style.animation = `
+floatingHeart.style.animation=`
 floatUp ${5+Math.random()*5}s linear infinite
 `;
 
