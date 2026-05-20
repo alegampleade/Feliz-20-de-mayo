@@ -806,87 +806,119 @@ Y gracias por hacerme sentir un amor tan real y bonito 😌💕
 
 <script>
 
-const music=document.getElementById('music');
-const finalMusic=document.getElementById('finalMusic');
+<script>
+
+const music = document.getElementById('music');
+const finalMusic = document.getElementById('finalMusic');
+
+const player = new Audio();
+
+/* ========================= */
+/* DETENER TODO */
+/* ========================= */
+
+function stopAllMusic(){
+
+    music.pause();
+    music.currentTime = 0;
+
+    finalMusic.pause();
+    finalMusic.currentTime = 0;
+
+    player.pause();
+    player.currentTime = 0;
+}
+
+/* ========================= */
+/* MÚSICA PRINCIPAL */
+/* ========================= */
 
 function playMusic(){
 
-/* pausar canciones individuales */
+    stopAllMusic();
 
-player.pause();
-
-/* pausar música final */
-
-finalMusic.pause();
-
-/* reproducir música principal */
-
-music.play();
-
+    music.play();
 }
+
+/* ========================= */
+/* REPRODUCIR CANCIONES */
+/* ========================= */
+
+function playSong(song){
+
+    stopAllMusic();
+
+    player.src = song;
+
+    player.play();
+}
+
+/* ========================= */
+/* FINAL */
+/* ========================= */
 
 function finale(){
 
-player.pause();
+    stopAllMusic();
 
-music.pause();
+    finalMusic.play();
 
-finalMusic.play();
+    const overlay=document.createElement("div");
 
-const overlay=document.createElement("div");
+    overlay.style.position="fixed";
+    overlay.style.top="0";
+    overlay.style.left="0";
+    overlay.style.width="100%";
+    overlay.style.height="100%";
+    overlay.style.background="radial-gradient(circle at center, #1a1a2e, #000)";
+    overlay.style.zIndex="99999";
+    overlay.style.display="flex";
+    overlay.style.flexDirection="column";
+    overlay.style.justifyContent="center";
+    overlay.style.alignItems="center";
+    overlay.style.textAlign="center";
+    overlay.style.overflowY="auto";
+    overlay.style.padding="50px 20px";
 
-overlay.style.position="fixed";
-overlay.style.top="0";
-overlay.style.left="0";
-overlay.style.width="100%";
-overlay.style.height="100%";
-overlay.style.background="radial-gradient(circle at center, #1a1a2e, #000)";
-overlay.style.zIndex="99999";
-overlay.style.display="flex";
-overlay.style.flexDirection="column";
-overlay.style.justifyContent="center";
-overlay.style.alignItems="center";
-overlay.style.textAlign="center";
-overlay.style.overflowY="auto";
-overlay.style.padding="50px 20px";
+    document.body.appendChild(overlay);
 
-document.body.appendChild(overlay);
+    /* ESTRELLAS */
 
-/* Estrellas */
+    for(let i=0;i<120;i++){
 
-for(let i=0;i<120;i++){
+        const star=document.createElement("div");
 
-const star=document.createElement("div");
+        star.innerHTML="✨";
 
-star.innerHTML="✨";
+        star.style.position="absolute";
 
-star.style.position="absolute";
+        star.style.left=Math.random()*100+"vw";
+        star.style.top=Math.random()*100+"vh";
 
-star.style.left=Math.random()*100+"vw";
-star.style.top=Math.random()*100+"vh";
+        star.style.fontSize=(8+Math.random()*18)+"px";
 
-star.style.fontSize=(8+Math.random()*18)+"px";
+        star.style.opacity=Math.random();
 
-star.style.opacity=Math.random();
+        star.style.animation=`pulse ${2+Math.random()*3}s infinite`;
 
-star.style.animation=`pulse ${2+Math.random()*3}s infinite`;
+        overlay.appendChild(star);
+    }
 
-overlay.appendChild(star);
+    /* CORAZÓN */
+
+    const heart=document.createElement("div");
+
+    heart.innerHTML="💖";
+
+    heart.style.fontSize="8rem";
+    heart.style.marginBottom="30px";
+    heart.style.animation="heartBeat 1.5s infinite";
+    heart.style.zIndex="2";
+
+    overlay.appendChild(heart);
 
 }
-
-/* Corazón */
-
-const heart=document.createElement("div");
-
-heart.innerHTML="💖";
-
-heart.style.fontSize="8rem";
-heart.style.marginBottom="30px";
-heart.style.animation="heartBeat 1.5s infinite";
-heart.style.zIndex="2";
-
-overlay.appendChild(heart);
+</script>
 
 /* Mini carta */
 
