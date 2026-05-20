@@ -45,7 +45,7 @@ body::-webkit-scrollbar-track{
 background:#111;
 }
 
-/* KUROMI */
+/* STICKERS */
 
 .sticker{
 position:fixed;
@@ -53,7 +53,21 @@ width:95px;
 z-index:1;
 pointer-events:none;
 opacity:0.75;
+padding:8px;
+background:
+radial-gradient(
+circle,
+rgba(255,192,203,0.15),
+rgba(255,105,180,0.05),
+transparent
+);
+border-radius:25px;
+backdrop-filter:blur(2px);
+filter:
+drop-shadow(0 0 8px rgba(255,192,203,0.6))
+drop-shadow(0 0 18px rgba(255,105,180,0.3));
 animation:floatSticker 6s ease-in-out infinite;
+transition:0.5s;
 }
 
 .sticker1{
@@ -77,9 +91,15 @@ right:5%;
 }
 
 @keyframes floatSticker{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-15px);}
-100%{transform:translateY(0px);}
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+50%{
+transform:translateY(-15px) rotate(5deg);
+}
+100%{
+transform:translateY(0px) rotate(0deg);
+}
 }
 
 /* SECCIONES */
@@ -207,11 +227,6 @@ color:#ffd1e3;
 text-align:center;
 }
 
-.highlight{
-color:#ff9fc1;
-font-weight:bold;
-}
-
 /* GALERÍA */
 
 .gallery{
@@ -219,6 +234,13 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 margin-top:30px;
+}
+
+.gallery img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:25px;
 }
 
 /* MUSIC CARD */
@@ -230,7 +252,6 @@ backdrop-filter:blur(14px);
 padding:25px;
 border-radius:30px;
 text-align:center;
-box-shadow:0 0 25px rgba(0,0,0,0.3);
 }
 
 .musicCard img{
@@ -238,20 +259,6 @@ width:100%;
 max-width:700px;
 border-radius:25px;
 margin-bottom:25px;
-box-shadow:0 0 25px rgba(255,105,180,0.25);
-}
-
-.musicCard h3{
-font-size:2rem;
-margin-bottom:15px;
-color:#ffd1e3;
-}
-
-.musicText{
-font-size:1.1rem;
-line-height:1.8;
-opacity:0.9;
-margin-bottom:30px;
 }
 
 .musicButtons{
@@ -264,18 +271,6 @@ flex-wrap:wrap;
 .songBtn{
 background:#ff4f87;
 color:white;
-padding:15px 30px;
-border:none;
-border-radius:40px;
-font-size:1rem;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
-
-.songBtn:hover{
-transform:scale(1.08);
-background:#ff6a9d;
 }
 
 /* FINAL */
@@ -287,13 +282,6 @@ text-align:center;
 .final h1{
 font-size:4rem;
 margin-bottom:20px;
-}
-
-.final p{
-font-size:1.4rem;
-max-width:800px;
-line-height:2;
-margin:auto;
 }
 
 .loveBtn{
@@ -315,32 +303,22 @@ transform:translateY(0);
 }
 }
 
-@keyframes pulse{
+@keyframes heartBeat{
 0%{
 transform:scale(1);
-opacity:0.4;
+}
+25%{
+transform:scale(1.15);
 }
 50%{
-transform:scale(1.5);
-opacity:1;
+transform:scale(1);
+}
+75%{
+transform:scale(1.15);
 }
 100%{
 transform:scale(1);
-opacity:0.4;
 }
-}
-
-@keyframes heartBeat{
-0%{transform:scale(1);}
-25%{transform:scale(1.15);}
-50%{transform:scale(1);}
-75%{transform:scale(1.15);}
-100%{transform:scale(1);}
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
 }
 
 @keyframes floatUp{
@@ -362,14 +340,14 @@ opacity:0;
 
 <body>
 
-<!-- KUROMI -->
+<!-- STICKERS -->
 
 <img class="sticker sticker1" src="Kuromi1.png">
 <img class="sticker sticker2" src="Kuromi2.png">
 <img class="sticker sticker3" src="Kuromi3.png">
 <img class="sticker sticker4" src="Kuromi4.png">
 
-<!-- MÚSICA -->
+<!-- AUDIOS -->
 
 <audio id="music" loop>
 <source src="hijodelaluna.mp3" type="audio/mpeg">
@@ -378,30 +356,6 @@ opacity:0;
 <audio id="finalMusic" loop>
 <source src="Piano.mp3" type="audio/mpeg">
 </audio>
-
-<!-- CORAZONES -->
-
-<script>
-
-for(let i=0;i<50;i++){
-
-const heart=document.createElement('div');
-
-heart.classList.add('heart');
-
-heart.innerHTML='❤️';
-
-heart.style.left=Math.random()*100+'vw';
-
-heart.style.fontSize=(15+Math.random()*25)+'px';
-
-heart.style.animationDuration=(5+Math.random()*6)+'s';
-
-document.body.appendChild(heart);
-
-}
-
-</script>
 
 <!-- INTRO -->
 
@@ -454,16 +408,7 @@ Quién diría que una persona podía llegar a significar tanto en tan poco tiemp
 
 <br><br>
 
-Porque sinceramente, desde que llegaste a mi vida,
-empezaste a convertir días normales
-en recuerdos que quiero guardar para siempre.
-
-<br><br>
-
-Y creo que eso es lo más bonito de todo esto…
-que apareciste sin hacer ruido,
-sin forzar nada,
-y aun así lograste cambiar muchísimas cosas dentro de mí.
+Desde que llegaste a mi vida, empezaste a convertir días normales en recuerdos que quiero guardar para siempre.
 
 <br><br>
 
@@ -475,7 +420,7 @@ Porque con vos incluso lo cotidiano se siente distinto 🤍
 
 </section>
 
-<!-- GALERÍA -->
+<!-- RECUERDOS -->
 
 <section>
 
@@ -485,7 +430,7 @@ Porque con vos incluso lo cotidiano se siente distinto 🤍
 
 <div class="card">
 
-<h2>Nuestra música 💕</h2>
+<h2>Nuestros recuerdos 📸</h2>
 
 <div class="gallery">
 
@@ -493,10 +438,10 @@ Porque con vos incluso lo cotidiano se siente distinto 🤍
 
 <img src="musica.png">
 
-<h3>Nuestras canciones ✨</h3>
+<h2>Nuestras canciones 💕</h2>
 
-<p class="musicText">
-Cada vez que escucho estas canciones pienso automáticamente en vos 🤍
+<p>
+Cada vez que escucho estas canciones pienso en vos ✨
 </p>
 
 <div class="musicButtons">
@@ -553,9 +498,34 @@ Gracias por convertirte en una de las partes más bonitas de mi vida 😌💕
 
 </section>
 
+<!-- SCRIPT FINAL -->
+
 <script>
 
+/* CORAZONES */
+
+for(let i=0;i<50;i++){
+
+const heart=document.createElement('div');
+
+heart.classList.add('heart');
+
+heart.innerHTML='❤️';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.fontSize=(15+Math.random()*25)+'px';
+
+heart.style.animationDuration=(5+Math.random()*6)+'s';
+
+document.body.appendChild(heart);
+
+}
+
+/* AUDIOS */
+
 const music = document.getElementById("music");
+
 const finalMusic = document.getElementById("finalMusic");
 
 const player = new Audio();
@@ -681,7 +651,7 @@ Ahora sí nuestra relación tiene un nombre 💖
 
 overlay.appendChild(miniCard);
 
-/* CORAZONES */
+/* CORAZONES FLOTANDO */
 
 for(let i=0;i<60;i++){
 
