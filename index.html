@@ -231,20 +231,97 @@ color:#ffd1e3;
 text-align:center;
 }
 
-/* GALERÍA */
+/* RECUERDOS */
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:30px;
+.memoriesContainer{
+display:flex;
+flex-direction:column;
+gap:35px;
+margin-top:35px;
 }
 
-.gallery img{
-width:100%;
-height:350px;
+.memoryCard{
+display:flex;
+align-items:center;
+gap:30px;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:0 0 25px rgba(0,0,0,0.35);
+}
+
+.memoryCard img{
+width:420px;
+height:240px;
 object-fit:cover;
 border-radius:25px;
+box-shadow:0 0 20px rgba(0,0,0,0.35);
+}
+
+.memoryContent{
+flex:1;
+}
+
+.memoryContent h3{
+font-size:2rem;
+margin-bottom:15px;
+color:#ffd1e3;
+}
+
+.memoryContent p{
+line-height:1.9;
+font-size:1.08rem;
+margin-bottom:25px;
+opacity:0.92;
+}
+
+.musicButtons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.songBtn{
+background:#ff4f87;
+color:white;
+padding:14px 28px;
+border:none;
+border-radius:40px;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 20px rgba(255,79,135,0.35);
+}
+
+.songBtn:hover{
+transform:scale(1.06);
+background:#ff6b9d;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.memoryCard{
+flex-direction:column;
+text-align:center;
+}
+
+.memoryCard img{
+width:100%;
+height:240px;
+}
+
+.musicButtons{
+justify-content:center;
+}
+
 }
 
 /* MUSIC CARD */
@@ -545,27 +622,54 @@ Ya sos perfecta para mí simplemente siendo quien sos.
 
 <h2>Nuestros recuerdos 📸</h2>
 
-<p style="margin-bottom:30px;">
+<p style="margin-bottom:30px; text-align:center;">
 
 Todavía no tenemos miles de fotos juntos…
-pero sí muchos momentos que ya significan muchísimo para mí 🤍
+pero sí momentos que ya significan muchísimo para mí 🤍
 
 </p>
 
-<div class="gallery">
+<div class="memoriesContainer">
+
+<!-- FOTO 1 -->
+
+<div class="memoryCard">
 
 <img src="foto1.jpg">
 
-<div class="musicCard">
+<div class="memoryContent">
+
+<h3>Momentos que valen muchísimo ✨</h3>
+
+<p>
+
+No hacen falta miles de fotos para saber
+que hay personas que llegan y se vuelven especiales
+demasiado rápido 😌💕
+
+</p>
+
+</div>
+
+</div>
+
+<!-- MÚSICA -->
+
+<div class="memoryCard">
 
 <img src="musica.png">
 
-<h2>Nuestras canciones 💕</h2>
+<div class="memoryContent">
 
-<p style="margin-bottom:20px;">
+<h3>Nuestras canciones 💕</h3>
+
+<p>
 
 Cada vez que escucho estas canciones,
-automáticamente pienso en vos ✨
+automáticamente pienso en vos 🤍
+
+Y creo que eso es lo más lindo de todo…
+tener canciones que ya me recuerdan a nosotros ✨
 
 </p>
 
@@ -589,7 +693,31 @@ onclick="playSong('amarrame.mp3')">
 
 </div>
 
+</div>
+
+<!-- FOTO 2 -->
+
+<div class="memoryCard">
+
 <img src="foto3.jpg">
+
+<div class="memoryContent">
+
+<h3>Lo bonito de coincidir 🤍</h3>
+
+<p>
+
+A veces las mejores historias empiezan
+de la manera más inesperada…
+
+y sinceramente,
+qué suerte la mía de haberte encontrado 💖
+
+</p>
+
+</div>
+
+</div>
 
 </div>
 
